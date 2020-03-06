@@ -1,0 +1,17 @@
+function count (string) { 
+  "use strict"
+  let i = 0, result = { },counter = 1; 
+ for ( i ; i < string.length;i++ , counter = 1) {
+    for (let j = 1+i; j < string.length; j++) {
+      if (string.charAt(i) === string.charAt(j)) {
+        counter ++;  
+      } 
+    }
+    let store = string.charAt(i);
+    let firstInstanceOf = string.indexOf(store);
+  if (firstInstanceOf === i) {
+   result[string.charAt(i)] = counter;
+  }
+ }
+ return result;
+}

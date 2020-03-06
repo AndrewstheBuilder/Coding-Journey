@@ -1,0 +1,124 @@
+import java.util.Scanner;
+
+public class MyCalender1 {
+
+    public static void main(String[] args) {
+        //Stage 1
+        Scanner input = new Scanner(System.in);
+        boolean truth = true;
+        long year = 0;
+        while (truth == true) {
+            System.out.print("Enter a year between 1780 & 2040: ");
+            year = input.nextLong();
+            if (year <= 2040 && year >= 1780) {
+                truth = false;
+            } else {
+                System.out.println("Invalid year. Please input an integer in the range 1780 through 2040.");
+            }
+        }
+
+        //Stage 2
+        double d = (28.0 + (year % 100.0) + Math.floor(((year % 100) - 1.0) / 4.0) + Math.floor(year / 400.0) - (2 * (Math.floor(year / 100.0)))) % 7.0;
+        if (d < 0) {
+            d += 7;
+        }
+
+        //Stage 3
+        double firstDay = d;
+        int daysInMonth[] = new int[12];
+        String month = "";
+
+        int spaceCounterXX = 0;
+        int space = 1;
+        int spaceHolder = space;
+
+        for (int i = 1; i <= 12; i++) {
+            switch (i) {
+                case 1:
+                    month = "January";
+                    daysInMonth[0] = 31;
+                    break;
+                case 2:
+                    month = "February";
+                    //Count year%4 == 0 to be leap year.
+                    if (year % 4 == 0) {
+                        daysInMonth[1] = 29;
+                    } else {
+                        daysInMonth[1] = 28;
+                    }
+                    break;
+                case 3:
+                    month = "March";
+                    daysInMonth[2] = 31;
+                    break;
+                case 4:
+                    month = "April";
+                    daysInMonth[3] = 30;
+                    break;
+                case 5:
+                    month = "May";
+                    daysInMonth[4] = 31;
+                    break;
+                case 6:
+                    month = "June";
+                    daysInMonth[5] = 30;
+                    break;
+                case 7:
+                    month = "July";
+                    daysInMonth[6] = 31;
+                    break;
+                case 8:
+                    month = "August";
+                    daysInMonth[7] = 31;
+                    break;
+                case 9:
+                    month = "September";
+                    daysInMonth[8] = 30;
+                    break;
+                case 10:
+                    month = "October";
+                    daysInMonth[9] = 31;
+                    break;
+                case 11:
+                    month = "November";
+                    daysInMonth[10] = 30;
+                    break;
+                case 12:
+                    month = "December";
+                    daysInMonth[11] = 31;
+                    break;
+            }
+            ;
+
+            //Printing The headers of each year and Month 
+            System.out.println("-----------------------------------------------------");
+            System.out.println("                  " + month + " " + year);
+            System.out.println("Sun     Mon     Tue     Wed     Thu     Fri     Sat");
+
+            //Printing the spaces between dates
+            if (month != "January") {
+                firstDay = (spaceHolder + daysInMonth[i - 2]) % 7;
+            }
+            for (space = 1, spaceCounterXX = 0; space <= firstDay; space++) {
+                System.out.print("        ");
+                spaceHolder = space;
+                spaceCounterXX = 1;
+            }
+            if (spaceCounterXX == 0) {
+                spaceHolder = 0;
+            }
+            // System.out.println(spaceHolder);
+            //printing the dates
+            for (int dayPrint = 1; dayPrint <= daysInMonth[i - 1]; dayPrint++) {
+                int dayCounter = spaceHolder + dayPrint;
+                System.out.printf("%3d     ", dayPrint);
+                if (dayCounter % 7 == 0) {
+                    System.out.println();
+                }
+                dayCounter++;
+            }
+            System.out.println("\n-----------------------------------------------------");
+            System.out.println();
+        }
+    }
+} 

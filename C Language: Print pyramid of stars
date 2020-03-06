@@ -1,0 +1,77 @@
+#include <stdio.h>
+
+int main(void) 
+{
+  int num,space,stars;
+  int numspaces = 3;
+  int numrows = numspaces; 
+  int numnum=1;
+  int run=1,runspace=2,x,z,y;
+  
+  for(num = 0; num < numrows ; num++)
+  { 
+   for( space = 0 ; space < numspaces ;  space++)
+    {
+     printf("   ");
+    }
+     for( stars = 0; stars <= num; stars++)
+  {  
+  printf("%d",numnum);
+  printf("     ");
+  numnum++; 
+  } 
+ for( x=0;x<=0;x++)
+ { 
+  printf("\n");
+   for( y=0 ; y < runspace ; y++)
+   {
+     printf("     ");
+     
+     if(runspace==1)
+     {
+       run*=5;
+     }
+     
+     else if(runspace==0)
+     {
+     run=5;
+     }
+     else;
+     
+   }
+   if(runspace==0)
+   {
+     run=15;
+     }
+     
+   for(z=1;z<=run;z++)
+   {
+     
+     if(z==3&&run==5)
+     {
+     printf("   ");
+     }
+     
+     if(z==5&&run==15)
+     {
+       printf("  ");
+     }
+     
+     if(z==10&&run==15)
+     {
+       printf("  ");
+     }
+     
+      printf("*");//The Star printer protect this line at all costs!!!
+     
+   } 
+ }
+
+    printf("\n\n");
+
+   runspace = runspace - 1;
+   numspaces = numspaces - 1; 
+ 
+  }
+return 0;
+}

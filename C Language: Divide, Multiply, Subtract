@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+ main() 
+{
+	//Local Declarations
+   int a,b,c;
+   //Statements
+   printf("\nDivide, Multiply, Subtract two numbers\n");
+   scanf("%d%d",&a,&b);
+   printf("\nDivision Answer and Remainder\n");
+   c=a/b;
+   printf("%d=%d/%d\n",a/b,a,b);
+   printf("%d %% %d = %d\n", a,b,a%b);
+   printf("\nMultiplication Answer\n");
+   c=a*b;
+   printf("%d=%d*%d\n",a*b,a,b);
+   printf("\nSubtraction Answer\n");
+   c=a-b;
+   printf("%d=%d-%d\n",a-b,a,b);
+   
+}

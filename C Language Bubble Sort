@@ -1,0 +1,75 @@
+#include <stdio.h>
+void comparison(int,int [], int* ,int*, int*);
+void sorting(int , int [],int*);
+int main(void) {
+  int size,i;
+  int max,min,twomax;
+  int sorted;
+  printf("ENTER THE NUMBER OF ELEMENTS IN ARRAY: ");
+  scanf("%d",&size);
+  int arrayed[size]; 
+  for(i = 0; i < size; i++) {
+  printf("Elements of array[%d] are: ",i);
+  scanf("%d", &arrayed[i]);
+  }
+  //comparison function call
+  comparison(size,arrayed,&max,&min,&twomax);//passing entire array
+  printf("\nThe smallest number is: %d",min);
+  printf("\nThe largest and second largest number is: %d and %d",max,twomax);
+  //sorting function call
+  sorting(size,arrayed,&sorted);
+  printf("\nSorted array is:\n");
+  for (i = 0; i < size; i++) {        
+    printf("%d\n", arrayed[i]);    
+    }
+   return 0;
+}
+
+void comparison(int n,int arr[],int* maximum,int* minimum,int* maxtwo) {
+  //for finding max 
+  int j;
+*maximum = arr[0];
+for(j = 1; j < n; j++) { 
+  if(arr[j] > *maximum)
+  {
+*maximum = arr[j];
+  }
+}
+//for finding second max 
+int m;
+*maxtwo = arr[0];
+for(m = 1; m < n; m++) {
+  if(arr[m] > *maxtwo && *maximum != arr[m])
+  {
+    *maxtwo = arr[m];
+  }
+  else if(*maxtwo == *maximum)
+  {
+   *maxtwo = arr[m+1];
+  }
+}
+//for finding min
+int b;
+*minimum = arr[0];
+for(b = 1; b < n; b++) { 
+  if(arr[b] < *minimum)
+  {
+*minimum = arr[b];
+  }
+}
+}
+ void sorting(int n,int arra[],int *sorted) { 
+   int i, j,temp;
+   for (i = 0; i < n; i++)   
+    {        
+    for (j = 0; j < (n - i - 1); j++)   
+     {            
+       if (arra[j] > arra[j + 1])            
+       {                
+         temp = arra[j];
+         arra[j] = arra[j + 1];                
+         arra[j + 1] = temp;       
+         }        
+     }    
+    }
+ }

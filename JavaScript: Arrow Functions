@@ -1,0 +1,15 @@
+const materials = ["Hydrogen","Oxygen","Iron","Lithium"];
+//Old Function Syntax
+materials.map(function(material) {
+  return material.length;
+})
+
+//Arrow Function Syntax
+//materials.map(material => return material.length); /* return needs {}*/
+materials.map(x => x.length);
+
+//MAP METHOD IMPORTANT POINT
+//1. Inside () of map needs to have a function inside of it.
+//2. map runs as man times as there are objects inside of the array
+const matter = ['black holes', 'sun', 'planets'];
+matter.map(hey => console.log(hey));

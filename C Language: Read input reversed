@@ -1,0 +1,44 @@
+/*Read a number series and print it reversed
+By:Andrews 
+Date:4/4/19*/
+
+#include <stdio.h>
+
+int main(void) {
+ //Local Declarations
+ int readnum;
+ int arr[50];
+ //Statements
+ printf("You may enter up to 50 integers\n\n");
+ printf("How many would you like to integer: ");
+ scanf("%d",&readnum);
+
+ if(readnum>50)
+ readnum=50;
+printf("\n");
+ for (int i=0;i<readnum;i++){
+   printf("Enter the array[%d]: ",i);
+   scanf("%d",&arr[i]);//arr[] is a variable that points to the address of the stored variables to input or print
+   //i is the address spot ! How check the diagrams from your Comp Science 1 notes Arrays
+ } 
+  printf("\n");
+ for (int i=0;i<readnum;i++){
+   printf("%d\t",arr[i]);
+ }
+
+ printf("\n\n");
+ printf("Your numbers reversed:\n");
+
+ //reverse number printing loop
+ for(int i = readnum-1 , numPrinted = 0 ; i >= 0; i--){
+   printf("%3d\t", arr[i]);
+if(numPrinted < 0)
+   numPrinted++;
+
+else
+{
+printf("\n");
+numPrinted = 0;
+}
+ }
+}

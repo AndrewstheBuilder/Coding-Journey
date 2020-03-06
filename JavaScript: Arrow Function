@@ -1,0 +1,4 @@
+var x = (y) => {
+   return y * y;
+};
+x(9);

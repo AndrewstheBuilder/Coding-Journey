@@ -1,5 +1,5 @@
 #!/bin/python3
-
+#this port scanner was build using this tutorial: https://www.youtube.com/watch?v=3Kq1MIfTWCE
 import sys #allows us to enter command line argument among other things
 import socket
 from datetime import datetime
